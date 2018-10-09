@@ -1,0 +1,182 @@
+/* pages/charts/charts.wxss */
+page {
+  background: #80705F;
+  height: 100%;
+}
+
+.viewBg {
+  background-size: 100%;
+  height: 100%;
+}
+
+.wrap {
+  width: 690rpx;
+  height: 100%;
+  margin: 0 auto;
+  position: fixed;
+  left:4%;
+}
+
+.top {
+  display: flex;
+  width: 100%;
+  height: 120rpx;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+
+.friends {
+  width: 330rpx;
+  height: 90rpx;
+  /* background: #98998D;
+  border: 8rpx solid #33180A; */
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  line-height: 74rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #33180A;
+  position: relative;
+}
+
+.world {
+  width: 330rpx;
+  height: 90rpx;
+  background: #CBCCBC;
+  border-radius: 20rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #33180A;
+  box-sizing: border-box;
+  /* border: 6rpx solid #33180A; */
+}
+
+.friendsBg {
+  width: 330rpx;
+  height: 90rpx;
+  /* background: #CBCCBC; */
+  border-radius: 10rpx;
+  position: absolute;
+  left:0;
+  top:0;
+  z-index: 10;
+}
+.listBg{
+  width: 330rpx;
+  height: 90rpx;
+  position: absolute;
+  left:0;
+  top:0;
+}
+
+.listWrap {
+  width: 690rpx;
+  height: 720rpx;
+  background: #A4A695;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  /* border: 8rpx solid #33180A; */
+}
+
+.scrollView {
+  width: 100%;
+  height: 710rpx;
+  padding: 30rpx 40rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.scrollView .detail {
+  display: flex;
+  width: 100%;
+  height:139rpx;
+  align-items:center;
+  line-height:139rpx;
+  border-bottom:1rpx solid #cbccbc ;
+}
+
+.scrollView .detail:nth-of-type(1) {
+  margin-top: 0;
+}
+
+.scrollView .detail .order {
+  width: 60rpx;
+  height: 60rpx;
+  background: #FFDD33;
+  border-radius: 50%;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #33180A;
+}
+
+.scrollView .detail .face {
+  width: 94rpx;
+  height: 94rpx;
+  box-sizing: border-box;
+  border: 5rpx solid #33180A;
+  border-radius: 50%;
+}
+
+.scrollView .detail .info {
+  width: 250rpx;
+  height: 94rpx;
+  box-sizing: border-box;
+  padding-left: 29rpx;
+  font-size: 30rpx;
+  color: #33180A;
+  font-family:PingFangSC-Medium;
+  font-weight: bold;
+  line-height: 94rpx;
+}
+
+.scrollView .detail .info .yuanbaoIcon {
+  width: 35rpx;
+  height: 27rpx;
+  vertical-align: middle;
+  margin-left: 10rpx;
+}
+
+.scrollView .detail .quesNumber {
+  width: 162rpx;
+  line-height: 94rpx;
+  color: #33180A;
+  font-size: 40rpx;
+  text-align: right;
+}
+
+.myinfoWrap {
+  display: flex;
+  margin-top: 10rpx;
+  width: 690rpx;
+  height: 110rpx;
+  background: #A4A695;
+  color: #33180A; 
+  text-align: center;
+  border-radius: 20rpx; 
+  box-sizing: border-box;
+}
+
+.myinfoWrap .username {
+  flex: 1; 
+  line-height:114rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.myinfoWrap .number {
+  flex: 1; 
+  line-height:114rpx;
+  font-size: 40rpx;
+}
+
+.myinfoWrap .sort {
+  flex: 1; 
+  /* line-height:60rpx; */
+  font-size: 30rpx;
+  padding-top: 14rpx;
+  box-sizing: border-box;
+} 

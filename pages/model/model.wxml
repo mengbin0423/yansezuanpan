@@ -1,0 +1,19 @@
+<!--pages/model/model.wxml-->
+<view class="container">
+    <image src="../../res/bg.jpg" class='viImg'></image>
+    <view>
+      <view bindtap='threeModel' class='threeModel'>
+        <image src='../../res/three.png'></image>
+      </view>
+      <view bindtap='fourModel' class='fourModel'>
+        <image src='../../res/four.png'></image>
+      </view>
+      <view class='question'>
+        <image src='../../res/question.png' ></image>
+      </view>
+    </view>
+    <view style='position:fixed;left:0;bottom:0;width:100%'>
+      <ad unit-id="adunit-eb16b8d763ea1967"></ad>
+    </view>
+    
+</view>

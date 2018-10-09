@@ -1,0 +1,119 @@
+<!--index.wxml-->
+
+  <view class="container">
+    <image src="../../res/bg.jpg" class='viImg'></image>
+    <view  style='position:fixed;width:100%;height:100%;left:0;top:0' class="{{goldSwitch == 1?'content':'content1'}}">
+    <view class='headerView'  wx:if="{{goldSwitch == 1?true:false}}">
+      <view class='user'>
+        <view class='userImg'>
+          <image src='{{avatarurl}}'></image>
+        </view>
+        <view class='name'>{{nickname}}</view>
+      </view>
+      <view class='wallet'>
+        <image class='moneyIcon' src='../../res/img/icon1.png'></image>
+        <view class='money'>{{money}}</view>
+        <form bindsubmit='moreGame' report-submit='true' style='width:80rpx;height:52rpx;'>
+          <button form-type="submit" hover-class='click' hover-stay-time='200' style='overflow:visible;width:100%;height:100%;'>
+            <image class='forward' src='../../res/img/icon2.png'></image>
+          </button>
+        </form>
+      </view>
+    </view>
+       <view class="userinfo" wx:else>
+          <block>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{avatarurl}}" background-size="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text> 
+          </block>
+      </view> 
+        <image src='../../res/title@2x.png' class='title'>  
+        </image>
+        <navigator target="miniProgram" open-type="navigate" app-id="{{appid}}" path="{{GamePath}}" extra-data="" version="release"><image src='{{indexIcon}}' class='icon'  animation='{{animationData}}'> </image></navigator>
+        
+        <view class='helpImg' bindtap='supur'>
+          <image src='../../res/bgLight.png' class='bgLight'></image>
+          <image src='../../res/help.png'  class='grift'></image>
+        </view>
+        
+        <view class="usermotto">
+          <form  bindsubmit="GoIndex"  report-submit='true'>
+            <button class="user-motto" formType="submit" class='button'>
+              <image src='../../res/startGame.png'></image>
+            </button>
+          </form>
+          <view class='userList'>
+            <form  bindsubmit="GoHistory" report-submit='true'>
+              <button class="button user-list userLeft" formType="submit">
+                <image src='../../res/list.png'></image>
+              </button>
+            </form>  
+            <form  bindsubmit="model" report-submit='true'>
+              <button class="button user-list" formType="submit">
+                <image src='../../res/moshi.png' ></image>
+              </button>
+            </form> 
+          </view>
+          <view class='userList'>
+            <form  bindsubmit="moreGame" report-submit='true'>
+              <button class="button user-list userLeft" formType="submit">
+                <image src='../../res/more.png'></image>
+              </button>
+            </form>  
+            <form  bindsubmit="wait" report-submit='true'>
+              <button class="button user-list" formType="submit">
+                <image src='../../res/qidai.png' ></image>
+              </button>
+            </form> 
+          </view>
+        </view>
+    </view>
+    
+    <view class='layers' wx:if='{{showHelp}}'>
+        <view class='layerContain'>
+          <image src='../../res/bg2.png' class="bgLay"></image>
+          <text class='text'>复活卡</text>
+          <image src='../../res/btnClose.png' class='closeBtn' bindtap='closeBtn'></image>  
+          <image src='../../res/txt2.png' class='text1Img'></image>
+          <image src='../../res/heat.png' class='heat'></image>
+          <text class='txt'>x {{ResurreCard}}</text>
+          <image src='../../res/txt1.png' class='text2Img'></image>
+          <button open-type='share' class='shareBtn'>
+            <image src='../../res/midBtn.png' class='midBtn'></image>
+          </button>  
+        </view>
+    </view>
+  </view>
+
+
+<!-- 登录引导 -->
+  <form bindsubmit="showGuide" report-submit="true"  wx:if='{{!haveUserInfo}}'>
+    <button wx:if="{{canIUse}}" formType="submit" plain="true" hover-class="none" class='btn' open-type='getUserInfo' bindgetuserinfo='btnuserInfo'  lang='zh_CN'>
+      <image class="viImg" src="../../res/bg.jpg"></image> 
+      <view class='main'>
+        <image src='../../res/img/logo.png' class='guide-logo'></image>
+        <image src='../../res/loginBtn.png' class='guide-start'></image>
+      </view>
+    </button>
+    <view wx:else>请升级微信版本</view>
+  </form>
+
+
+  <!-- 新人红包 -->
+<view class="model" wx:if='{{redPacket}}'>
+  <form bindsubmit="closeGuide" report-submit="true">
+    <button formType="submit" plain="true" hover-class="none" class="btn1">
+      <image src='../../res/img/packet.png' class='pack'></image>
+    </button>
+  </form>
+  <image src='../../res/img/x@2x.png' class='pack-close' catchtap='closeRedPacket'></image>
+</view>
+<view class="model" wx:if='{{openredPacket}}'>
+  <form bindsubmit="closeOpenGuide" report-submit="true">
+    <button formType="submit" plain="true" hover-class="none" class="btn1">
+      <image src='../../res/img/red_packet.png' class='pack'></image>
+    </button>
+  </form>
+  <image src='../../res/img/x@2x.png' class='pack-close' catchtap='closeRedPacket'></image>
+</view>
+<!-- 指示引导 -->
+<image src='../../res/img/guide.png' wx:if='{{showHandGuide}}' class='showGuide' style='right: {{handRight}}rpx;top:{{handTop}}rpx;'></image>

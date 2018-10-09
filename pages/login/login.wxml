@@ -1,0 +1,7 @@
+<!--pages/login/login.wxml-->
+ <view class="container">
+   <image src="../../res/loginBtn.jpg" class='viImg'></image>
+   <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 
+      <image src='../../res/loginBtn.png' class='loginBtn'></image>
+  </button>
+ </view>

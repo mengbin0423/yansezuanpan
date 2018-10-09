@@ -1,0 +1,14 @@
+/* pages/login/login.wxss */
+.loginBtn{
+  width: 328rpx;
+  height:106rpx;
+  position: fixed;
+  left:198rpx;
+  bottom:340rpx;
+
+}
+button{
+  padding:0;
+  margin:0;
+  
+}

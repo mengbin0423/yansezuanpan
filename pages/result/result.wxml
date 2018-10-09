@@ -1,0 +1,65 @@
+<!--pages/result/result.wxml-->
+ <view class="container">
+    <image src="../../res/bg.jpg" class='viImg'></image>
+    <view class='mask'>
+      <view class='levelImg' >
+        <canvas  canvas-id="shareCanvas" style="width:320px;height:320px;margin:0 auto;display:{{visiby}}" ></canvas> 
+      </view> 
+      
+    <view class='saveImg'>
+      <form  report-submit='true' bindtap='gameAgin'>
+        <button formType="submit" class='gameAgin'>  
+          <image src='../../res/again.png'></image>
+        </button> 
+      </form>
+      <form bindtap='saveImage' report-submit='true'>
+        <button formType="submit" class='saveFri'>
+          <image src='../../res/saveImg.png'></image>
+        </button>
+      </form>
+      <form bindtap='xuanyao' report-submit='true'>
+        <button formType="submit" class='xuanyaoxxx'> 
+          <image src='../../res/fuhuo.png'></image>
+        </button>
+      </form>  
+      <form  report-submit='true' bindtap='goback'>
+        <button formType="submit" class='goback'>
+          <image src='../../res/index.png'></image>  
+        </button> 
+      </form>
+    </view>
+    <view style="display:flex;justify-content:center;align-item:center;width:100%;height:86rpx;{{isMe?'margin-top:20rpx;':'margin-top:20rpx;'}}">
+      <button open-type='share' style='margin:0;'>
+        <image src='../../res/img/invite.png' class='makeFri'></image>
+      </button>
+      <image src="../../res/img/more.png"  class='makeFri' bindtap='enterMore' style='margin-left:10rpx;'></image>
+    </view>
+    
+    <image src='../../res/gobackChange.png' class='changeList'  bindtap='goChangList' wx:if='{{!isMe}}'></image> 
+
+    <view class='shareCan' wx:if='{{saveSuccess}}'>
+      <view class='compant'>
+          <text class='saveSuccess'>保存成功</text>
+          <text class='saveSuccess'>快分享给朋友炫耀吧</text>
+      </view>
+    </view>  
+  </view>
+  <view class='layers' wx:if='{{showHelp}}'>
+    <view class='layerContain'>
+      <image src='../../res/bg2.png' class="bgLay"></image>
+      <text class='text'>复活卡</text>
+      <image src='../../res/btnClose.png' class='closeBtn' bindtap='closeBtn'></image>  
+      <image src='../../res/txt2.png' class='text1Img'></image>
+      <image src='../../res/heat.png' class='heat'></image>
+      <text class='txt'>x {{ResurreCard}}</text>
+      <image src='../../res/txt1.png' class='text2Img'></image>
+      <button open-type='share' class='shareBtn'>
+        <image src='../../res/midBtn.png' class='midBtn'></image>
+      </button>  
+    </view>
+  </view>
+  <view style='position:fixed;left:0;bottom:0;width:100%'>
+      <ad unit-id="adunit-eb16b8d763ea1967"></ad>
+    </view>
+</view> 
+

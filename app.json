@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/Checkpoint/checkpoint",
+    "pages/charts/charts",
+    "pages/result/result",
+    "pages/changeList/changeList",
+    "pages/login/login",
+    "pages/model/model"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F2F2DA",
+    "navigationBarTitleText": "颜色转转转",
+    "navigationBarTextStyle": "black"
+  }
+}

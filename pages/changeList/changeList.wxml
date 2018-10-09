@@ -1,0 +1,39 @@
+<!--pages/changeList/changeList.wxml-->
+<!--pages/result/result.wxml-->
+
+<view class="container">
+    <image src="../../res/bg.jpg" class='viImg'></image>
+    <view style='position:fixed;width:100%;height:100%;left:0;top:0'>
+    <view class="userinfo"> 
+      <block >
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{shareMsg.avatar}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{shareMsg.name}}</text> 
+      </block>
+    </view>
+    <view class='changeList'>
+      <image src='../../res/changeBg.png' class='changeImg'></image>
+      <image src='../../res/changeRank.png' class='changRank'></image>
+       <view class='changeCon'>
+        <view wx:for='{{changeList}}' class='changeTab' wx:key="index">
+          <text class='changeText'>{{item.index}}</text>
+          <image bindtap="bindViewTap" class="changeAva" src="{{item.avatar}}" background-size="cover"></image> 
+          <text class="changeName">{{item.name}}</text> 
+          <text class="changeScore">{{item.score}}分</text>
+        </view>
+      </view> 
+  
+    </view>
+   
+    <view  wx:if='{{isMe}}'>
+      <button class='yaoqing' formType="submit" open-type='share'>
+        <image src='../../res/img/btn3.png'></image>
+      </button>  
+    </view>
+    <view  class='yaoqing'  wx:else bindtap='startChange'>
+     <image src='../../res/img/btn2.png'></image>
+    </view>
+    <view class='yaoqing'  bindtap='backIndex'>
+      <image src='../../res/img/btn1.png'></image>
+    </view>
+  </view>
+</view>

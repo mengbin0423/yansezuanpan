@@ -1,0 +1,54 @@
+<!--pages/charts/charts.wxml-->
+<view class="viewBg">
+   <image src="../../res/bg.jpg" class='viImg'></image>
+  <view class="wrap">
+    <view class="top">
+       <view class="friends" wx:if='{{isFriends}}'>
+            <image src='../../res/listBg.png' class='listBg'></image>
+            <view class="friendsBg">好友排行</view>  
+      </view> 
+      <view class="world" wx:if='{{!isFriends}}' bindtap='showFridens'>好友排行</view>
+      <view style="width: 30rpx;">
+      </view>
+       <view class="friends" wx:if='{{!isFriends}}'>
+            <image src='../../res/listBg.png' class='listBg'></image>
+            <view class="friendsBg">世界排行</view>  
+      </view> 
+      <view class="world" wx:if='{{isFriends}}' bindtap='showWorld'>世界排行</view>
+    </view>
+    <view class="listWrap">
+      <scroll-view scroll-y class="scrollView" bindscrolltolower="loadInfo" scroll-with-animation="false">
+        <view class="detail" wx:for="{{list}}" wx:key="index" wx:if='{{isFriends}}'>
+          <view class="order">{{item.sortnum}}</view>
+          <view style="width: 44rpx;"></view>
+          <image class="face" src="{{item.faceurl}}"></image>
+          <view class="info">
+            <view>{{item.username}}</view>
+          </view>
+          <view class="quesNumber">{{item.question}}分</view>
+        </view>
+        <view class="detail" wx:for="{{listWorld}}" wx:key="index" wx:if='{{!isFriends}}'>
+          <view class="order">{{item.sortnum}}</view>
+          <view style="width: 44rpx;"></view>
+          <image class="face" src="{{item.faceurl}}"></image>
+          <view class="info">
+            <view>{{item.username}}</view>
+            
+          </view>
+          <view class="quesNumber">{{item.question}}分</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="myinfoWrap">
+      <view class="username">{{myInfo.name}}</view>
+      <view class="number">{{myInfo.gold}}分</view>
+      <view class="sort">
+        <view>{{myInfo.mysort}}</view>
+        <view>我的排名</view>
+      </view>
+    </view>
+  </view>
+  <view style='position:fixed;left:0;bottom:0;width:100%'>
+      <ad unit-id="adunit-eb16b8d763ea1967"></ad>
+    </view>
+</view>

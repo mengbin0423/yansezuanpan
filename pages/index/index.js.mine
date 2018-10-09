@@ -1,0 +1,290 @@
+//index.js
+//获取应用实例
+const app = getApp();
+const md5 = require('../../utils/md5.js');
+const base64 = require('../../utils/base64.js');
+const utils = require('../../utils/util.js');
+const api = require('../../utils/api.js');
+Page({
+  data: {
+    motto: 'Hello World',
+    userInfo: {},
+    avatarurl:'',
+    version: '101',
+    showHelp:false,
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    ResurreCard: 0
+  },
+  //事件处理函数
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
+  
+  onLoad: function (options) {
+    wx.removeStorageSync('ouid');
+    wx.removeStorageSync('oqid');
+    this.setData({
+      ResurreCard: app.globalData.ResurreCard
+    })
+    console.log(app.globalData.ResurreCard)
+    let openid = wx.getStorageSync('openid');
+    if (openid == ''){
+      wx.redirectTo({
+        url: '/pages/login/login',
+      })
+    }else{
+      this.setData({
+        avatarurl: wx.getStorageSync('avatarurl')
+      })
+      if (JSON.stringify(options) != "{}") {
+        if (options.ouid != undefined) {
+          wx.setStorageSync('ouid', options.ouid)
+          this.creatFriends()
+        }
+      }
+     
+      if (app.globalData.userInfo) {
+        this.setData({
+          userInfo: app.globalData.userInfo,
+          hasUserInfo: true
+        })
+      } else if (this.data.canIUse) {
+        // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+        // 所以此处加入 callback 以防止这种情况
+        app.userInfoReadyCallback = res => {
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      } else {
+        // 在没有 open-type=getUserInfo 版本的兼容处理
+        wx.getUserInfo({
+          success: res => {
+            app.globalData.userInfo = res.userInfo
+            this.setData({
+              userInfo: res.userInfo,
+              hasUserInfo: true
+            })
+          }
+        })
+      }
+    }
+
+    
+    
+    function checkSession() {
+      // 判断是否为首次登录
+      let openid = wx.getStorageSync('openid');
+      console.log('openid: ' + openid);
+      if (openid == '') {
+        console.log("首次登录");
+        wx.redirectTo({
+          url: '/pages/login/login',
+        })
+      } else {
+        wx.checkSession({
+          success: res => {
+            
+          },
+          fail: res => {
+            console.log("checkSession error: " + JSON.stringify(res));
+            this.wxLogin();
+          }
+        })
+      }
+    }
+  },
+  //获取个人信息
+  onShareAppMessage: function (e) {
+    var _this = this;
+    
+    if (e.from == 'button') {
+      _this.setData({
+        shareImg: '../../res/xuming.jpg',
+        shareTitle: '跟着我左手、右手，来个大旋转？',
+        shareUrl: '/pages/index/index'
+      })
+    } else if (e.from == 'menu') {
+      _this.setData({
+        shareImg: '../../res/zuanfa.jpg',
+        shareTitle: '颜色转转转玩到手残，就问你敢不敢挑战？',
+        shareUrl: '/pages/index/index'
+      })
+    }
+
+    return {
+      title: _this.data.shareTitle,
+      imageUrl: _this.data.shareImg,
+      path: _this.data.shareUrl,
+      success: function (res) {
+        if (app.globalData.ResurreCard < 2) {
+          app.globalData.ResurreCard = app.globalData.ResurreCard + 1
+        }
+        _this.setData({
+          showHelp:false,
+          ResurreCard: app.globalData.ResurreCard
+        })
+        
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })
+       
+      },
+      fail: function (res) {　// 转发失败之后的回调
+        if (res.errMsg == 'shareAppMessage:fail cancel') {// 用户取消转发　　
+          wx.showToast({
+            title: '取消转发',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+      },
+    }
+  },
+
+  
+  //获取用户状态信息
+  userStatus: function () {
+    console.log('获取用户状态信息');
+    let _this = this;
+    let params = {
+      uid: wx.getStorageSync('uid'),
+      tick: Date.parse(new Date()) / 1000
+    };
+    params['key'] = md5(app.getSN(params));
+    wx.request({
+      url: api.status,
+      data: params,
+      method: 'GET',
+      success: function (res) {
+        let datas = utils.formatStr(res.data);
+        if (datas.code == 0) {
+          let avatar = base64.Base64.decode(datas.avatar);
+          let coins = datas.coins;
+          let name = base64.Base64.decode(datas.name);
+          let qid = datas.qid;
+          let question_num = datas.question_num;
+          wx.setStorageSync('avatar', avatar);
+          wx.setStorageSync('coins', coins);
+          wx.setStorageSync('name', name);
+          wx.setStorageSync('qid', qid);
+          wx.setStorageSync('order', qid);
+          wx.setStorageSync('question_num', question_num);
+          if (wx.getStorageSync('oqid') == '' || wx.getStorageSync('ouid') == wx.getStorageSync('uid')) {
+           
+          } else {
+            _this.getOtherQuestion();
+          }
+        } else {
+          console.log('status error: ' + JSON.stringify(res));
+        }
+      },
+      fail: res => {
+        console.log('status error: ' + JSON.stringify(res));
+      }
+    })
+  },
+  //开始游戏
+  GoIndex:function(e){
+    wx.redirectTo({
+      url: '/pages/Checkpoint/checkpoint'
+    })
+    // var formID = e.detail.formId;
+    // getFormId(1, formID)
+  },
+
+  supur:function(e){
+    this.setData({
+      showHelp:true
+    })
+  },
+
+  closeBtn:function(e){
+    this.setData({
+      showHelp: false
+    })
+  },
+
+  wait:function(e){
+    wx.showToast({
+      icon: 'success',
+      duration: 2000,
+      title:'功能暂未开放'
+    })
+  },
+
+  //历史选项
+  GoHistory:function(e){
+    wx.navigateTo({
+      url: '/pages/charts/charts'
+    })
+    // var formID = e.detail.formId;
+    // getFormId(2, formID)
+  },
+
+  //转盘模式
+  model:function(e){
+    wx.navigateTo({
+      url: '/pages/model/model',
+    })
+  },
+
+  creatFriends: function () {
+    let _this = this;
+    let params = {
+      uid: wx.getStorageSync('uid'),
+      friend_uid: wx.getStorageSync('ouid'),
+      tick: Date.parse(new Date()) / 1000
+    };
+    params['key'] = md5(app.getSN(params));
+    wx.request({
+      url: api.createFriends,
+      data: params,
+      method: 'GET',
+      success: function (res) {
+        let datas = utils.formatStr(res.data);
+        if (datas.code == 0) {
+         
+        } else {
+          console.log('创建好友请求出错');
+        }
+      }
+    })
+  },
+  
+
+  //更多好玩
+  moreGame: function (e) {
+   
+    wx.navigateToMiniProgram({
+      appId: 'wxaa46e77919aec8d9',
+    })
+    // var formID = e.detail.formId;
+    // getFormId(3, formID)
+  },  
+})
+
+//获取formID
+function getFormId(res, FormCode) {
+  let params = {
+    uid: wx.getStorageSync('uid'),
+    type: res,
+    formId: FormCode,
+    tick: Date.parse(new Date()) / 1000
+  }
+  params['key'] = md5(app.getSN(params));
+  wx.request({
+    url: api.getFormId,
+    method: 'GET',
+    data: params,
+    success: function (res) {
+      console.log(res)
+    }
+  })
+}

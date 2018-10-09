@@ -1,0 +1,139 @@
+/**app.wxss**/
+page{background: #F2F2DA;}
+.container {
+  height: 100%;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60rpx 0 0 0;
+  box-sizing: border-box;
+} 
+.viImg{
+    display:block;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    bottom:0;
+    right:0;
+    z-index:-1;
+}
+ button:hover{
+  background-color: transparent;
+}
+
+button{
+  background:transparent!important;
+  border:none!important;
+  padding:0!important;
+  
+}
+button::after {
+  border: none;
+} 
+
+button[plain] {border: none;}
+.helpImg{
+  width:150rpx;
+  height:150rpx;
+  position: fixed;
+  right:0;
+  top:38%;
+}
+
+.bgLight{
+  width:150rpx;
+  height:150rpx;
+}
+
+.grift{
+  width:98rpx;
+  height:98rpx;
+  position: absolute;
+  left:29rpx;
+  top:22rpx;
+
+}
+
+
+.layers{
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background:rgba(0, 0, 0, 0.2);
+  
+}
+.layerContain{
+  width:600rpx;
+  height:600rpx;
+  margin:105rpx auto 0;
+  position:relative;
+}
+.layerContain .bgLay{
+  width:100%;
+  height:100%; 
+}
+.layerContain .text{
+  font-size:36rpx;
+  font-family:FZY4JW--GB1-0;
+  color:rgba(0,0,0,1);
+  line-height:48rpx;
+  position: absolute;
+  top:39rpx;
+  left:247rpx;
+}
+.text1Img{
+  width:385rpx;
+  height:32rpx;
+  position:absolute;
+  top:170rpx;
+  left:100rpx;
+}
+.text2Img{
+  width:159rpx;
+  height:23rpx;
+  position: absolute;
+  top:380rpx;
+  left:220rpx;
+}
+.midBtn{
+  width:100%;
+  height:100%;
+}
+.closeBtn{
+  width:38px;
+  height:38px;
+  position:absolute;
+  right:20rpx;
+  top:20rpx;
+}
+
+.shareBtn{
+  width:220rpx;
+  height:80rpx;
+  position: absolute;
+  top:454rpx;
+  left:191rpx;
+  
+}
+
+.txt{
+  width: 100rpx;
+  height:50rpx;
+  position: absolute;
+  top:243rpx;
+  left:320rpx;
+}
+.heat{
+  width:54rpx;
+  height:48rpx;
+  position:absolute;
+  top:244rpx;
+  left:240rpx;
+
+}

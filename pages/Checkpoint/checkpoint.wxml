@@ -1,0 +1,182 @@
+<!--pages/Checkpoint/checkpoint.wxml-->
+<view class='checkPoint' bindtap='beginGame'>
+  <image src="../../res/bg.jpg" class='viImg'></image>
+  <view class='ccc'>
+    <view class='score' wx:if='{{scoreShow}}'>{{score}}</view>
+    <view wx:if='{{upline}}' class='upline'></view>
+    <view wx:if='{{uplinelong}}' class='uplinelong'></view>
+    <view class='clickStart' wx:if='{{startNow}}' bindtap='startGame'>
+      <image src='../../res/navThree.png' class="daohang" wx:if='{{threeModel}}'></image>
+      <image src='../../res/navFour.png' class="daohang" wx:else></image>
+    </view>
+    <view class='turnLeft' bindtap='turnLeft' wx:if='{{startGame}}'>
+    </view>
+    <view class='turnRight' bindtap='turnRight' wx:if='{{startGame}}'>
+    </view>
+    <view class='zuanpan' catchtap='turnOff'   animation="{{animationData}}" wx:if='{{zpShow}}'>
+      <image src='../../res/threeAngle.png' wx:if='{{threeModel}}' class='threeAngle'></image>
+      <image src='../../res/zuanpan.png' wx:else class='fourAngle'></image>
+    </view> 
+  </view>
+  <block wx:if="{{donghua}}">  
+    <view class='donghua'>   
+      <view animation="{{animationData1}}" class='point' style='background:{{background1}}'></view>
+      <view animation="{{animationData2}}" class='point' style='background:{{background2}}'></view>
+      <view animation="{{animationData3}}" class='point' style='background:{{background3}}'></view>
+      <view animation="{{animationData4}}" class='point' style='background:{{background4}}'></view>
+      <view animation="{{animationData5}}" class='point' style='background:{{background5}}'></view>
+      <view animation="{{animationData6}}" class='point' style='background:{{background6}}'></view>
+      <view animation="{{animationData7}}" class='point' style='background:{{background7}}'></view>
+      <view animation="{{animationData8}}" class='point' style='background:{{background8}}'></view>
+      <view animation="{{animationData9}}" class='point' style='background:{{background9}}'></view>
+      <view animation="{{animationData10}}" class='point' style='background:{{background10}}'></view>
+      <view animation="{{animationData11}}" class='point' style='background:{{background11}}'></view>
+      <view animation="{{animationData12}}" class='point' style='background:{{background12}}'></view>
+      <view animation="{{animationData13}}" class='point' style='background:{{background13}}'></view>
+      <view animation="{{animationData14}}" class='point' style='background:{{background14}}'></view>
+      <view animation="{{animationData15}}" class='point' style='background:{{background15}}'></view>
+      <view animation="{{animationData16}}" class='point' style='background:{{background16}}'></view>
+      <view animation="{{animationData17}}" class='point' style='background:{{background17}}'></view>
+      <view animation="{{animationData18}}" class='point' style='background:{{background18}}'></view>
+      <view animation="{{animationData19}}" class='point' style='background:{{background19}}'></view>
+      <view animation="{{animationData20}}" class='point' style='background:{{background20}}'></view> 
+      <view animation="{{animationData21}}" class='point' style='background:{{background21}}'></view>
+      <view animation="{{animationData22}}" class='point' style='background:{{background22}}'></view>
+      <view animation="{{animationData23}}" class='point' style='background:{{background23}}'></view>
+      <view animation="{{animationData24}}" class='point' style='background:{{background24}}'></view>
+      <view animation="{{animationData25}}" class='point' style='background:{{background25}}'></view>
+      <view animation="{{animationData26}}" class='point' style='background:{{background26}}'></view>
+      <view animation="{{animationData27}}" class='point' style='background:{{background27}}'></view>
+      <view animation="{{animationData28}}" class='point' style='background:{{background28}}'></view>
+      <view animation="{{animationData29}}" class='point' style='background:{{background29}}'></view>
+      <view animation="{{animationData30}}" class='point' style='background:{{background30}}'></view>
+      <view animation="{{animationData31}}" class='point' style='background:{{background31}}'></view>
+      <view animation="{{animationData32}}" class='point' style='background:{{background32}}'></view>
+      <view animation="{{animationData33}}" class='point' style='background:{{background33}}'></view>
+      <view animation="{{animationData34}}" class='point' style='background:{{background34}}'></view>
+      <view animation="{{animationData35}}" class='point' style='background:{{background35}}'></view>
+      <view animation="{{animationData36}}" class='point' style='background:{{background36}}'></view>
+      <view animation="{{animationData37}}" class='point' style='background:{{background37}}'></view>
+      <view animation="{{animationData38}}" class='point' style='background:{{background38}}'></view>
+      <view animation="{{animationData39}}" class='point' style='background:{{background39}}'></view>
+      <view animation="{{animationData40}}" class='point' style='background:{{background40}}'></view>
+      <view animation="{{animationData41}}" class='point' style='background:{{background41}}'></view>
+      <view animation="{{animationData42}}" class='point' style='background:{{background42}}'></view>
+      <view animation="{{animationData43}}" class='point' style='background:{{background43}}'></view>
+      <view animation="{{animationData44}}" class='point' style='background:{{background44}}'></view>
+      <view animation="{{animationData45}}" class='point' style='background:{{background45}}'></view>
+      <view animation="{{animationData46}}" class='point' style='background:{{background46}}'></view>
+      <view animation="{{animationData47}}" class='point' style='background:{{background47}}'></view>
+      <view animation="{{animationData48}}" class='point' style='background:{{background48}}'></view>
+      <view animation="{{animationData49}}" class='point' style='background:{{background49}}'></view>
+      <view animation="{{animationData50}}" class='point' style='background:{{background50}}'></view>
+      <view animation="{{animationData51}}" class='point' style='background:{{background51}}'></view>
+      <view animation="{{animationData52}}" class='point' style='background:{{background52}}'></view>
+      <view animation="{{animationData53}}" class='point' style='background:{{background53}}'></view>
+      <view animation="{{animationData54}}" class='point' style='background:{{background54}}'></view>
+      <view animation="{{animationData55}}" class='point' style='background:{{background55}}'></view>
+      <view animation="{{animationData56}}" class='point' style='background:{{background56}}'></view>
+      <view animation="{{animationData57}}" class='point' style='background:{{background57}}'></view>
+      <view animation="{{animationData58}}" class='point' style='background:{{background58}}'></view>
+      <view animation="{{animationData59}}" class='point' style='background:{{background59}}'></view>
+      <view animation="{{animationData60}}" class='point' style='background:{{background60}}'></view> 
+      <view animation="{{animationData61}}" class='point' style='background:{{background61}}'></view>
+      <view animation="{{animationData62}}" class='point' style='background:{{background62}}'></view>
+      <view animation="{{animationData63}}" class='point' style='background:{{background63}}'></view>
+      <view animation="{{animationData64}}" class='point' style='background:{{background64}}'></view>
+      <view animation="{{animationData65}}" class='point' style='background:{{background65}}'></view>
+      <view animation="{{animationData66}}" class='point' style='background:{{background66}}'></view>
+      <view animation="{{animationData67}}" class='point' style='background:{{background67}}'></view>
+      <view animation="{{animationData68}}" class='point' style='background:{{background68}}'></view>
+      <view animation="{{animationData69}}" class='point' style='background:{{background69}}'></view>
+      <view animation="{{animationData70}}" class='point' style='background:{{background70}}'></view>
+      <view animation="{{animationData71}}" class='point' style='background:{{background71}}'></view>
+      <view animation="{{animationData72}}" class='point' style='background:{{background72}}'></view>
+      <view animation="{{animationData73}}" class='point' style='background:{{background73}}'></view>
+      <view animation="{{animationData74}}" class='point' style='background:{{background74}}'></view>
+      <view animation="{{animationData75}}" class='point' style='background:{{background75}}'></view>
+      <view animation="{{animationData76}}" class='point' style='background:{{background76}}'></view>
+      <view animation="{{animationData77}}" class='point' style='background:{{background77}}'></view>
+      <view animation="{{animationData78}}" class='point' style='background:{{background78}}'></view>
+      <view animation="{{animationData79}}" class='point' style='background:{{background79}}'></view>
+      <view animation="{{animationData80}}" class='point' style='background:{{background80}}'></view> 
+      <view animation="{{animationData81}}" class='point' style='background:{{background81}}'></view>
+      <view animation="{{animationData82}}" class='point' style='background:{{background82}}'></view>
+      <view animation="{{animationData83}}" class='point' style='background:{{background83}}'></view>
+      <view animation="{{animationData84}}" class='point' style='background:{{background84}}'></view>
+      <view animation="{{animationData85}}" class='point' style='background:{{background85}}'></view>
+      <view animation="{{animationData86}}" class='point' style='background:{{background86}}'></view>
+      <view animation="{{animationData87}}" class='point' style='background:{{background87}}'></view>
+      <view animation="{{animationData88}}" class='point' style='background:{{background88}}'></view>
+      <view animation="{{animationData89}}" class='point' style='background:{{background89}}'></view>
+      <view animation="{{animationData90}}" class='point' style='background:{{background90}}'></view>
+      <view animation="{{animationData91}}" class='point' style='background:{{background91}}'></view>
+      <view animation="{{animationData92}}" class='point' style='background:{{background92}}'></view>
+      <view animation="{{animationData93}}" class='point' style='background:{{background93}}'></view>
+      <view animation="{{animationData94}}" class='point' style='background:{{background94}}'></view>
+      <view animation="{{animationData95}}" class='point' style='background:{{background95}}'></view>
+      <view animation="{{animationData96}}" class='point' style='background:{{background96}}'></view>
+      <view animation="{{animationData97}}" class='point' style='background:{{background97}}'></view>
+      <view animation="{{animationData98}}" class='point' style='background:{{background98}}'></view>
+      <view animation="{{animationData99}}" class='point' style='background:{{background99}}'></view>
+      <view animation="{{animationData100}}" class='point' style='background:{{background100}}'></view> 
+      <view animation="{{animationData101}}" class='point' style='background:{{background101}}'></view>
+      <view animation="{{animationData102}}" class='point' style='background:{{background102}}'></view>
+      <view animation="{{animationData103}}" class='point' style='background:{{background103}}'></view>
+      <view animation="{{animationData104}}" class='point' style='background:{{background104}}'></view>
+      <view animation="{{animationData105}}" class='point' style='background:{{background105}}'></view>
+      <view animation="{{animationData106}}" class='point' style='background:{{background106}}'></view>
+      <view animation="{{animationData107}}" class='point' style='background:{{background107}}'></view>
+      <view animation="{{animationData108}}" class='point' style='background:{{background108}}'></view>
+      <view animation="{{animationData109}}" class='point' style='background:{{background109}}'></view>
+      <view animation="{{animationData110}}" class='point' style='background:{{background110}}'></view>
+      <view animation="{{animationData111}}" class='point' style='background:{{background111}}'></view>
+      <view animation="{{animationData112}}" class='point' style='background:{{background112}}'></view>
+      <view animation="{{animationData113}}" class='point' style='background:{{background113}}'></view>
+      <view animation="{{animationData114}}" class='point' style='background:{{background114}}'></view>
+      <view animation="{{animationData115}}" class='point' style='background:{{background115}}'></view>
+      <view animation="{{animationData116}}" class='point' style='background:{{background116}}'></view>
+      <view animation="{{animationData117}}" class='point' style='background:{{background117}}'></view>
+      <view animation="{{animationData118}}" class='point' style='background:{{background118}}'></view>
+      <view animation="{{animationData119}}" class='point' style='background:{{background119}}'></view>
+      <view animation="{{animationData120}}" class='point' style='background:{{background120}}'></view> 
+     
+       
+    </view>  
+  </block>  
+  
+  <view class='btn'>
+    <view class='shareCanSuccess' wx:if='{{shareSuccess}}'>
+      <view class='compant'>
+        <text class='shareWrong'>续命成功</text>
+        <text class='shareWrong'>3s后游戏继续</text>
+      </view>
+    </view>
+  </view>
+  
+</view>
+<view class='resultMask' wx:if='{{resultMask}}'>
+  <view class='layerContain'>
+    <image src='../../res/bg1.png' class="bgLay"></image>
+    <view class='scoreTitle'>
+      <text>- 当前成绩 -</text>
+      <text>{{score}}分</text>
+    </view>
+    <image src='../../res/ifBtn.png' class='text1Img'></image>
+    <image src='../../res/heat.png' class='heat'></image>
+    <text class='fuhuoNum'>x {{ResurreCard}}</text>
+    <image src='../../res/midBtnYes.png' class='midBtnYes' bindtap='midBtnYes' wx:if='{{Resurre}}'></image>
+    <image src='../../res/midBtnNone.png' class='midBtnYes' wx:else></image>
+  </view>
+  <view class='jumpOff' catchtap='jumpOff'>
+    <image src='../../res/jumpOff@2x.png'></image>
+  </view>
+  <view style='position:fixed;left:0;bottom:0;width:100%' wx:if='{{resultMask}}'>
+    <ad unit-id="adunit-eb16b8d763ea1967"></ad>
+  </view>
+</view>
+
+<!-- 玩主游戏金币奖励 -->
+<view class="modal" wx:if="{{gift}}">
+  <image src='../../res/img/reward.png' class='gift'></image>
+</view>

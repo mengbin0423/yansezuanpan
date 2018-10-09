@@ -1,0 +1,122 @@
+/**index.wxss**/
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container{
+    background-size:100%;
+    height:100%; 
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  border:2px solid #000;
+}
+.button{
+  background: none;
+  border:none!important;
+  height: 120rpx;
+  width: 660rpx;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+  padding:0;
+}
+.button image{
+  height: 120rpx;
+  width: 660rpx;
+}
+.user-motto::after{  
+  border:none;  
+  background: none;
+}  
+.userinfo-nickname {
+  color: #18171A;
+  font-size: 24rpx;
+  font-weight:bold;
+
+}
+
+.usermotto {
+  margin-top: 20rpx;
+}
+
+.user-motto {
+  color:#333333;
+}
+
+.title{
+  width: 655rpx;
+  height: 400rpx;
+  margin-top:40rpx;
+  margin-bottom: 20rpx;
+  margin-left: 7%;
+  
+}
+.usermotto image{
+  width: 660rpx;
+  height: 120rpx;
+  margin-bottom: 25rpx;
+}
+
+.userList{
+  width: 660rpx;
+  height: 120rpx;
+  margin:0 auto
+}
+
+.user-list{
+  width: 320rpx;
+  height: 120rpx;
+  float: left;
+}
+.user-list image{
+  width: 320rpx;
+  height: 120rpx;
+}
+
+.userLeft{
+  margin-right: 20rpx;
+}
+
+
+.btn{position: fixed;top:0;left:0;right:0;bottom:0;z-index: 9999;}
+.guide{width:100%;height:100%;position: absolute;top:0;left:0;z-index: -1;}
+.main{width:100%;height:100%;display: flex;flex-direction: column;align-items: center;justify-content: flex-start;}
+.guide-logo{width:548rpx;height:469rpx;margin-top: 18vh;}
+.guide-start{width:440rpx;height:136rpx;margin-top: 12rpx;}
+
+
+.content{padding-top:80rpx;}
+.content1{padding-top:40rpx;}
+.headerView{width:100%;height:120rpx;padding:0 55rpx;box-sizing: border-box;display: flex;align-items: center;justify-content: space-between;}
+.user{position: relative;height:100%;display: flex;align-items: center;}
+.userImg{width: 120rpx;height: 120rpx;border-radius: 50%;overflow: hidden;border: 5rpx solid #18171A;box-sizing: border-box;z-index: 10;position: absolute;left:0;}
+.userImg>image{width: 100%;height: 100%;z-index: 10;display: block;filter:none; }
+.name{padding:0 28rpx;line-height: 50rpx;font-size: 30rpx; color:#fff;text-align: center;position: absolute;top:50%;left:100rpx;background:rgba(0,0,0,0.5);border-radius: 25rpx;transform: translateY(-50%);height:50rpx;min-width:130rpx;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240rpx;z-index: 1;}
+
+.wallet{position: relative;height:100%;display: flex;align-items: center;}
+.money{line-height: 50rpx;font-size: 30rpx; color:#fff;text-align: center;position: absolute;top:50%;right:20rpx;z-index: 1;background:rgba(0,0,0,0.5);border-radius: 25rpx;transform: translateY(-50%);width:200rpx;box-sizing: border-box;padding-right:65rpx; padding-left:40rpx;overflow: hidden;height:50rpx;}
+.forward{width:80rpx;height:52rpx;z-index: 2;position: absolute;right:0;}
+.moneyIcon{position: absolute;right:185rpx;width:58rpx;height:64rpx;z-index: 2;}
+
+
+.model{position: fixed;top:0;left:0;right:0;bottom:0;z-index: 1200;background: rgba(0,0,0,0.5);width:100%;height:100%;display: flex;flex-direction: column;justify-content: center;align-items: center;}
+.model form{height:auto;}
+button::after {border: 0;border-radius:0;}
+button.btn1{border:0;margin:0;padding:0;line-height: 0;display: flex;justify-content: flex-end;border-radius: 0;overflow: visible;height:auto;}
+.pack-close{width:60rpx;height:60rpx;margin-top:56rpx;}
+.pack{width:520rpx;height:610rpx;}
+.showGuide{width:67rpx;height:75rpx;position: fixed;right:20rpx;top:130rpx;z-index: 200;}
+
+.icon{
+  width:150rpx;
+  height:160rpx;
+  position:absolute;
+  left:17rpx;
+  top:460rpx;
+}
